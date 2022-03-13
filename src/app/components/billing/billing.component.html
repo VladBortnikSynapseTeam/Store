@@ -1,0 +1,32 @@
+<div class="shipping-container">
+    <div class="billing-same">
+      <span class="shipping-title">Billing Information</span>
+      <a href="#" class="billing-same-title">Same as shipping</a>
+    </div>
+    <span class="shipping-form-type">Billing Contact</span>
+    <div class="recipient-form-container">
+      <form action="GET" [formGroup]="billingFormGroup">
+      <input type="text" class="fullname" placeholder="Full Name" formControlName="billingFullName">
+      <div class="phone-container">
+        <input type="text" class="daytime-phone" placeholder="Daytime Phone" formControlName="billingPhone">
+        <span class="phone-title">For delivery questions only</span>
+      </div>
+    </form> 
+    </div>
+    <span class="adress-title">Billing Address</span>
+    <div class="address-form-container">
+      <form action="GET" [formGroup]="billingFormGroup">
+      <input type="text" class="str-address" placeholder="Street Address" formControlName="billingAddress">
+      <input type="text" class="apt" placeholder="Apt, Suite, Bldg, Gate Code. (optional)" formControlName="billingApt">
+      <div class="city-container">
+        <input type="text" class="city" placeholder="City" formControlName="billingCity">
+        <img src="../assets/Shape.svg" class="geo-icon" (click)="findGeo()">
+      </div>
+      <div class="country-container">
+        <input type="text" class="country" placeholder="Country" formControlName="billingCountry">
+        <input type="text" class="zip" placeholder="ZIP" formControlName="billingZip">
+      </div>
+    </form>
+     <button class="continue-btn" (click)="nextStageBilling()">Continue</button>
+    </div>
+  </div>

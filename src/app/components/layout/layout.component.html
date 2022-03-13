@@ -1,0 +1,106 @@
+<header>
+    <div>
+      <img src="../assets/Combined Shape.svg" alt="" class="combined-shape">
+      <img src="../assets/Shipping Info.svg" alt="">
+    </div>
+      <img src="../assets/Group 10.svg" alt="" class="header-cart">
+</header>
+  <div class="line"></div>
+    <div class="order">
+      <div class="switch-container" [ngSwitch]="stageSwitch$ | async">
+        <div class="stage-breadcrumbs">
+          <span [ngClass]="{'stage-title-active': (stageSwitch$ | async) == 1, 'stage-title-disabled': (stageSwitch$ | async) == 2 || (stageSwitch$ | async) == 3}">Shipping</span>
+          <img src="../assets/Group Copy 2.svg" alt="">
+          <span [ngClass]="{'stage-title-active': (stageSwitch$ | async) == 2, 'stage-title-disabled': (stageSwitch$ | async) == 1 || (stageSwitch$ | async) == 3}">Billing</span>
+          <img src="../assets/Group Copy 2.svg" alt="">
+          <span [ngClass]="{'stage-title-active': (stageSwitch$ | async) == 3, 'stage-title-disabled': (stageSwitch$ | async) == 1 || (stageSwitch$ | async) == 2}">Payment</span>
+        </div>
+        <ng-template ngSwitchCase="1">
+          <app-shipping></app-shipping>
+        </ng-template>
+        <ng-template ngSwitchCase="2" class="billing-container">
+          <app-billing></app-billing>
+        </ng-template> 
+        <ng-template ngSwitchCase="3" class="payment-container">
+         <app-payment></app-payment>
+        </ng-template>
+      </div>
+      <div class="summary-container">
+        <div class="summary">
+          <span>Order Summary</span>
+          <span class="edit">edit order</span>
+        </div>
+        <div class="shop-items">
+          <div class="item">
+            <div class="item-info">
+              <div class="img-frame">
+                <img src="../assets/boot.png" alt="">
+              </div>
+              <div class="img-description">
+                <span class="item-title">The Chelsea Boot</span>
+                <span class="description">Black</span>
+                <span class="description">Quantity: 1</span>
+              </div>
+            </div>
+            <div class="item-cost">
+              $235
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-info">
+              <div class="img-frame">
+                <img src="../assets/bag2.png" alt="">
+              </div>
+              <div class="img-description">
+                <span class="item-title">The Twill Snap Backpack</span>
+                <span class="description">Reverse Denim + Brown leather</span>
+                <span class="description">Quantity: 1</span>
+              </div>
+            </div>
+            <div class="item-cost">
+              $65
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-info">
+              <div class="img-frame">
+                <img src="../assets/bag.png" alt="">
+              </div>
+              <div class="img-description">
+                <span class="item-title">The Twill Zip Tote</span>
+                <span class="description">Reverse Denim + Black leather</span>
+                <span class="description">Quantity: 1</span>
+              </div>
+            </div>
+            <div class="item-cost">
+              $48
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-info">
+              <div class="subtotal-container">
+                <span class="subtotal">Subtotal</span>
+                <span class="subtotal">Shipping</span>
+                <span class="subtotal">Taxes</span>
+              </div>
+            </div>
+            <div class="item-cost">
+              <div class="cost-container">
+                <span class="subtotal">$389</span>
+                <span class="subtotal">Free</span>
+                <span class="subtotal">$12.12</span>
+              </div>
+            </div>
+          </div>
+          <div class="item-total-container">
+            <div class="item-total">
+              <span class="total">Total</span>
+            </div>
+            <div class="item-total-cost">
+              <span class="total">$410.12</span>
+            </div>
+          </div>
+        </div>
+        <div class="summary-footer">All purchases are subject to our Terms and Conditions.</div>
+      </div>
+    </div>

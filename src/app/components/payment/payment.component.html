@@ -1,0 +1,27 @@
+<div class="payment-container">
+    <span class="shipping-title">Payment</span>
+    <div class="secure-container">
+      <img src="../assets/lock.svg" alt="">
+    </div>
+    <span class="card-title">Cardholder Name</span>
+    <form action="GET" [formGroup]="paymentFormGroup">
+    <div class="card-form-container">
+      <input type="text" class="str-address" placeholder="Name as it appears on your card" formControlName="paymentName">
+    </div>
+    <span class="card-title">Card Number</span>
+    <div class="card-form-container">
+      <input type="text" class="str-address" placeholder="XXXX XXXX XXXX XXXX XXXX" formControlName="paymentNumber">
+    </div>
+    <div class="expire-container">
+      <div class="expire-input">
+        <span class="card-title">Expire Date</span>
+        <input type="text" class="expire-inp" placeholder="MM / YY" formControlName="paymentExpire">
+      </div>
+      <div class="security-input">
+        <span class="card-title">Security Code</span>
+        <input type="text" class="expire-inp" formControlName="paymentCode">
+      </div>
+    </div>
+    </form>
+    <button class="continue-btn" (click)="nextStageBilling()">Pay Securely</button>
+  </div>

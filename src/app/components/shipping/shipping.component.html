@@ -1,0 +1,29 @@
+<div class="shipping-container">
+    <span class="shipping-title">Shipping Info</span>
+    <span class="shipping-form-type">Recipient</span>
+    <div class="recipient-form-container">
+      <form action="GET" [formGroup]="shippingForm">
+      <input type="text" class="fullname" placeholder="Full Name" formControlName="shippingFullName">
+      <div class="phone-container">
+        <input type="text" class="daytime-phone" placeholder="Daytime Phone" formControlName="shippingPhone">
+        <span class="phone-title">For delivery questions only</span>
+      </div>
+    </form>
+    </div>
+    <span class="adress-title">Address</span>
+    <div class="address-form-container">
+      <form action="GET" [formGroup]="shippingForm">
+      <input type="text" class="str-address" placeholder="Street Address" formControlName="shippingAddress">
+      <input type="text" class="apt" placeholder="Apt, Suite, Bldg, Gate Code. (optional)" formControlName="shippingApt">
+      <div class="city-container">
+        <input type="text" class="city" placeholder="City" formControlName="shippingCity">
+        <img src="../assets/Shape.svg" class="geo-icon" (click)="findGeo()">
+      </div>
+      <div class="country-container">
+        <input type="text" class="country" placeholder="Country" formControlName="shippingCountry">
+        <input type="text" class="zip" placeholder="ZIP" formControlName="shippingZip">
+      </div>
+    </form>
+     <button class="continue-btn" (click)="nextStageShipping()">Continue</button>
+    </div>
+  </div>
