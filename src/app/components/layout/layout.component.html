@@ -8,7 +8,7 @@
   <div class="line"></div>
     <div class="order">
       <div class="switch-container" [ngSwitch]="stageSwitch$ | async">
-        <div class="stage-breadcrumbs">
+        <div class="stage-breadcrumbs" *ngIf="(stageSwitch$ | async)! <= 3">
           <span [ngClass]="{'stage-title-active': (stageSwitch$ | async) == 1, 'stage-title-disabled': (stageSwitch$ | async) == 2 || (stageSwitch$ | async) == 3}">Shipping</span>
           <img src="../assets/Group Copy 2.svg" alt="">
           <span [ngClass]="{'stage-title-active': (stageSwitch$ | async) == 2, 'stage-title-disabled': (stageSwitch$ | async) == 1 || (stageSwitch$ | async) == 3}">Billing</span>
@@ -24,8 +24,11 @@
         <ng-template ngSwitchCase="3" class="payment-container">
          <app-payment></app-payment>
         </ng-template>
+        <ng-template ngSwitchCase="4">
+          <app-final></app-final>
+        </ng-template>
       </div>
-      <div class="summary-container">
+      <div class="summary-container" [ngClass]="{summaryDisabled: (stageSwitch$ | async) == 4}">
         <div class="summary">
           <span>Order Summary</span>
           <span class="edit">edit order</span>

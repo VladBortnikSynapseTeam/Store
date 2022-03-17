@@ -11,6 +11,7 @@ import { AppReducer } from './store/reducers/app.reducer';
 import { BillingReducer } from './store/reducers/billing.reducer';
 import { PaymentReducer } from './store/reducers/payment.reducer';
 import { ShippingReducer } from './store/reducers/shipping.reducers';
+import { FinalComponent } from './components/final/final.component';
 
 
 

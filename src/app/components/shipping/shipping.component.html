@@ -3,9 +3,12 @@
     <span class="shipping-form-type">Recipient</span>
     <div class="recipient-form-container">
       <form action="GET" [formGroup]="shippingForm">
-      <input type="text" class="fullname" placeholder="Full Name" formControlName="shippingFullName">
+        <div class="validation-container" *ngIf="shippingForm.controls['shippingFullName'].touched && !shippingForm.controls['shippingFullName'].valid">
+          <span class="validation-text">Please enter recipient full name</span>
+        </div>
+      <input type="text" class="fullname" placeholder="Full Name" formControlName="shippingFullName" [ngClass]="{notValidInput:!shippingForm.controls['shippingFullName'].valid && shippingForm.controls['shippingFullName'].touched}">
       <div class="phone-container">
-        <input type="text" class="daytime-phone" placeholder="Daytime Phone" formControlName="shippingPhone">
+        <input type="text" class="daytime-phone" placeholder="Daytime Phone" formControlName="shippingPhone" mask="(000)-000-00-00" [ngClass]="{notValidInput:!shippingForm.controls['shippingPhone'].valid && shippingForm.controls['shippingPhone'].touched}">
         <span class="phone-title">For delivery questions only</span>
       </div>
     </form>
@@ -13,17 +16,19 @@
     <span class="adress-title">Address</span>
     <div class="address-form-container">
       <form action="GET" [formGroup]="shippingForm">
-      <input type="text" class="str-address" placeholder="Street Address" formControlName="shippingAddress">
+      <input type="text" class="str-address" placeholder="Street Address" formControlName="shippingAddress" [ngClass]="{notValidInput:!shippingForm.controls['shippingAddress'].valid && shippingForm.controls['shippingAddress'].touched}">
       <input type="text" class="apt" placeholder="Apt, Suite, Bldg, Gate Code. (optional)" formControlName="shippingApt">
       <div class="city-container">
-        <input type="text" class="city" placeholder="City" formControlName="shippingCity">
+        <input type="text" class="city" placeholder="City" formControlName="shippingCity" [ngClass]="{notValidInput:!shippingForm.controls['shippingCity'].valid && shippingForm.controls['shippingCity'].touched}">
         <img src="../assets/Shape.svg" class="geo-icon" (click)="findGeo()">
       </div>
       <div class="country-container">
-        <input type="text" class="country" placeholder="Country" formControlName="shippingCountry">
-        <input type="text" class="zip" placeholder="ZIP" formControlName="shippingZip">
+        <select class="country" formControlName="shippingCountry" [ngClass]="{notValidInput:!shippingForm.controls['shippingCountry'].valid && shippingForm.controls['shippingCountry'].touched}">
+            <option *ngFor="let country of countries">{{country}}</option>
+        </select>
+        <input type="text" class="zip" placeholder="ZIP" formControlName="shippingZip" [ngClass]="{notValidInput:!shippingForm.controls['shippingZip'].valid && shippingForm.controls['shippingZip'].touched}">
       </div>
     </form>
-     <button class="continue-btn" (click)="nextStageShipping()">Continue</button>
+     <button class="continue-btn" (click)="nextStageShipping()" [ngClass]="{disableContinueBtn:!shippingForm.valid}">Continue</button>
     </div>
   </div>

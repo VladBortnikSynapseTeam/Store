@@ -1,3 +1,7 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
 header {
   width: calc(100% - 328px);
   height: 50px;
@@ -44,8 +48,8 @@ header {
   width: 360px;
   display: flex;
   flex-direction: column;
-  height: 100%;
   padding: 23px 0px 0px 40px;
+  overflow-y: scroll;
 }
 .summary-container {
   width: 300px;
@@ -53,6 +57,9 @@ header {
   display: flex;
   flex-direction: column;
   padding: 24px 12px 15px 12px;
+}
+.summaryDisabled {
+  opacity: 0.4;
 }
 .summary {
   color: #5a1094;
@@ -192,10 +199,6 @@ header {
   color: #5a1094;
   padding-top: 20px;
 }
-.recipient-form-container,
-.address-form-container {
-  height: 100px;
-}
 .fullname,
 .daytime-phone,
 .str-address,
@@ -210,7 +213,19 @@ header {
   border: 1px solid #dedcdc;
   box-sizing: border-box;
   border-radius: 5px;
-  padding: 15px;
+  padding-left: 15px;
+  margin-top: 5px;
+}
+.email-address {
+  height: 40px;
+  width: calc(100% - 40px);
+  outline: none;
+  font-size: 16px;
+  background: #ffffff;
+  border: 1px solid #dedcdc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding-left: 15px;
   margin-top: 5px;
 }
 .fullname {
@@ -273,6 +288,11 @@ header {
   line-height: 19px;
   cursor: pointer;
 }
+.disableContinueBtn {
+  opacity: 0.3;
+  cursor: default;
+}
+
 .billing-same {
   width: 100%;
   display: flex;
@@ -290,12 +310,15 @@ header {
   display: flex;
   align-items: center;
   padding-top: 15px;
+  padding-bottom: 22px;
 }
 .card-title {
   font-size: 16px;
   line-height: 18px;
   color: #5a1094;
-  margin-top: 20px;
+}
+.card-form-container {
+  margin-bottom: 20px;
 }
 .expire-container {
   height: 40px;
@@ -319,4 +342,23 @@ header {
 .expire-input,
 .security-input {
   width: 130px;
+}
+.notValidInput {
+  background-color: rgba(248, 231, 28, 0.2);
+}
+.validation-text {
+  font-size: 13px;
+  line-height: 16px;
+  color: #d0021b;
+}
+.validation-container {
+  width: 200px;
+  padding: 3px;
+  border-radius: 3px;
+  background: #ffffff;
+  border: 1px solid rgba(222, 220, 220, 0.695907);
+  box-sizing: border-box;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 120px;
 }

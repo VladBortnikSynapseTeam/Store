@@ -1,0 +1,44 @@
+.order-title {
+  font-size: 26px;
+  line-height: 31px;
+  color: #5a1094;
+  font-weight: 100;
+  margin-top: 40px;
+  display: block;
+}
+.order-container {
+  height: 500px;
+}
+.order-number {
+  font-size: 16px;
+  line-height: 19px;
+  color: #2b2525;
+  display: block;
+  margin-top: 29px;
+}
+.order-email {
+  font-size: 16px;
+  line-height: 18px;
+  color: #2b2525;
+  display: block;
+  margin-top: 11px;
+}
+.estimate {
+  display: block;
+  margin-top: 31px;
+}
+.print {
+  font-size: 13px;
+  line-height: 13px;
+  color: #5a1094;
+  display: flex;
+  margin-top: 31px;
+  background-color: white;
+  outline: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.email {
+  color: #5a1094;
+}

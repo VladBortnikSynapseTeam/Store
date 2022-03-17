@@ -1,32 +1,36 @@
 <div class="shipping-container">
     <div class="billing-same">
       <span class="shipping-title">Billing Information</span>
-      <a href="#" class="billing-same-title">Same as shipping</a>
+      <a href="#" class="billing-same-title" (click)="sameAsShipping()">Same as shipping</a>
     </div>
     <span class="shipping-form-type">Billing Contact</span>
     <div class="recipient-form-container">
-      <form action="GET" [formGroup]="billingFormGroup">
-      <input type="text" class="fullname" placeholder="Full Name" formControlName="billingFullName">
+      <form action="GET" [formGroup]="billingFormGroup" >
+        <div class="validation-container" *ngIf="billingFormGroup.controls['billingFullName'].touched && !billingFormGroup.controls['billingFullName'].valid">
+          <span class="validation-text">Please enter recipient full name</span>
+        </div>
+      <input type="text" class="fullname" placeholder="Full Name" formControlName="billingFullName" [ngClass]="{notValidInput:!billingFormGroup.controls['billingFullName'].valid && billingFormGroup.controls['billingFullName'].touched}">
       <div class="phone-container">
-        <input type="text" class="daytime-phone" placeholder="Daytime Phone" formControlName="billingPhone">
-        <span class="phone-title">For delivery questions only</span>
+        <input type="text" class="email-address" placeholder="Email Address" formControlName="billingPhone" [ngClass]="{notValidInput:!billingFormGroup.controls['billingPhone'].valid && billingFormGroup.controls['billingPhone'].touched}">
       </div>
     </form> 
     </div>
     <span class="adress-title">Billing Address</span>
     <div class="address-form-container">
       <form action="GET" [formGroup]="billingFormGroup">
-      <input type="text" class="str-address" placeholder="Street Address" formControlName="billingAddress">
-      <input type="text" class="apt" placeholder="Apt, Suite, Bldg, Gate Code. (optional)" formControlName="billingApt">
+      <input type="text" class="str-address" placeholder="Street Address" formControlName="billingAddress" [ngClass]="{notValidInput:!billingFormGroup.controls['billingAddress'].valid && billingFormGroup.controls['billingAddress'].touched}">
+      <input type="text" class="apt" placeholder="Apt, Suite, Bldg, Gate Code. (optional)" formControlName="billingApt" >
       <div class="city-container">
-        <input type="text" class="city" placeholder="City" formControlName="billingCity">
+        <input type="text" class="city" placeholder="City" formControlName="billingCity" [ngClass]="{notValidInput:!billingFormGroup.controls['billingCity'].valid && billingFormGroup.controls['billingCity'].touched}">
         <img src="../assets/Shape.svg" class="geo-icon" (click)="findGeo()">
       </div>
       <div class="country-container">
-        <input type="text" class="country" placeholder="Country" formControlName="billingCountry">
-        <input type="text" class="zip" placeholder="ZIP" formControlName="billingZip">
+        <select class="country" placeholder="Country" formControlName="billingCountry" [ngClass]="{notValidInput:!billingFormGroup.controls['billingCountry'].valid && billingFormGroup.controls['billingCountry'].touched}">
+            <option *ngFor="let country of countries">{{country}}</option>
+        </select>
+        <input type="text" class="zip" placeholder="ZIP" formControlName="billingZip" [ngClass]="{notValidInput:!billingFormGroup.controls['billingZip'].valid && billingFormGroup.controls['billingZip'].touched}">
       </div>
     </form>
-     <button class="continue-btn" (click)="nextStageBilling()">Continue</button>
+     <button class="continue-btn" (click)="nextStageBilling()" [ngClass]="{disableContinueBtn:!billingFormGroup.valid}">Continue</button>
     </div>
   </div>

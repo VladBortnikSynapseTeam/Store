@@ -1,0 +1,57 @@
+<div class="order-container">
+    <span class="order-title">Thank you for your order!</span>
+    <span class="order-number"> <b>Order number is: 111225445</b> </span>
+    <span class="order-email">Your will recieve an email confirmation <br>
+        shortly to <span class="email"> {{email}} </span>
+    </span>
+    <span class="estimate">Estimated delivery Day is <br>
+       <b>Friday 1st April 2016</b> 
+    </span>
+   <button href="#" class="print" printSectionId="print-section" styleSheetFile="assets/style/print.style.css" ngxPrint> <b>Print Recipe</b></button>
+</div>
+
+<div style="display: none;" id="print-section"> 
+    <section class="info-section">
+        <h2 class="info-label">Shipping Info</h2>
+        <div class="block-info">
+            <h3 class="form-label">Recipient</h3>
+            <p><b>Full Name: </b>{{shippingInfo.shippingFullName}}</p>
+            <p><b>Daytime Phone: </b>{{shippingInfo.shippingPhone}}</p>
+        </div>
+        <div class="block-info">
+            <h3 class="form-label">Address</h3>
+            <p><b>Street Address: </b>{{shippingInfo.shippingAddress}}</p>
+            <p><b>Apt, Suite, Bldg, Gate Code. (optional): </b>{{shippingInfo.shippingApt}}</p>
+            <p><b>City: </b>{{shippingInfo.shippingCity}}</p>
+            <p><b>Country: </b>{{shippingInfo.shippingCountry}}</p>
+            <p><b>Zip: </b>{{shippingInfo.shippingZip}}</p>
+        </div>
+    </section>
+    <section class="info-section">
+        <h2 class="info-label">Billing Information</h2>
+        <div class="block-info">
+            <h3 class="form-label">Billing Contact</h3>
+            <p><b>Full Name: </b>{{billingInfo.billingFullName}}</p>
+            <p><b>Email Address: </b>{{billingInfo.billingPhone}}</p>
+        </div>
+        <div class="block-info">
+            <h3 class="form-label">Billing Address</h3>
+            <p><b>Street Address: </b>{{billingInfo.billingAddress}}</p>
+            <p><b>Apt, Suite, Bldg, Gate Code. (optional): </b>{{billingInfo.billingApt}}</p>
+            <p><b>City: </b>{{billingInfo.billingCity}}</p>
+            <p><b>Country: </b>{{billingInfo.billingCountry}}</p>
+            <p><b>Zip: </b>{{billingInfo.billingZip}}</p>
+        </div>
+    </section>
+    <section class="info-section">
+        <h2 class="info-label">Payment</h2>
+        <div class="block-info">
+            <h3 class="form-label">Cardholder Name</h3>
+            <p><b>Full Name: </b>{{paymentInfo.paymentName}}</p>
+            <p><b>Card Number: </b>{{paymentInfo.paymentNumber}}</p>
+            <p><b>Expire Date: </b>{{paymentInfo.paymentExpire}}</p>
+            <p><b>Security Code: </b>{{paymentInfo.paymentCode}}</p>
+        </div>
+    </section>
+</div>
+

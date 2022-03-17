@@ -6,22 +6,23 @@
     <span class="card-title">Cardholder Name</span>
     <form action="GET" [formGroup]="paymentFormGroup">
     <div class="card-form-container">
-      <input type="text" class="str-address" placeholder="Name as it appears on your card" formControlName="paymentName">
+      <input type="text" class="str-address" placeholder="Name as it appears on your card" formControlName="paymentName" [ngClass]="{notValidInput:!paymentFormGroup.controls['paymentName'].valid && paymentFormGroup.controls['paymentName'].touched}">
     </div>
     <span class="card-title">Card Number</span>
     <div class="card-form-container">
-      <input type="text" class="str-address" placeholder="XXXX XXXX XXXX XXXX XXXX" formControlName="paymentNumber">
+      <input type="text" class="str-address" placeholder="XXXX XXXX XXXX XXXX XXXX" formControlName="paymentNumber" mask="0000 0000 0000 0000 0000" [ngClass]="{notValidInput:!paymentFormGroup.controls['paymentNumber'].valid && paymentFormGroup.controls['paymentNumber'].touched}">
+      <img src="../../../assets/Visa.svg" alt="" class="visa-logo" *ngIf="paymentFormGroup.controls['paymentNumber'].value[0] == 4">
     </div>
     <div class="expire-container">
       <div class="expire-input">
         <span class="card-title">Expire Date</span>
-        <input type="text" class="expire-inp" placeholder="MM / YY" formControlName="paymentExpire">
+        <input type="text" class="expire-inp" placeholder="MM / YY" formControlName="paymentExpire" mask="00 / 00" [ngClass]="{notValidInput:!paymentFormGroup.controls['paymentExpire'].valid && paymentFormGroup.controls['paymentExpire'].touched}">
       </div>
       <div class="security-input">
         <span class="card-title">Security Code</span>
-        <input type="text" class="expire-inp" formControlName="paymentCode">
+        <input type="text" class="expire-inp" formControlName="paymentCode" mask="000" [ngClass]="{notValidInput:!paymentFormGroup.controls['paymentCode'].valid && paymentFormGroup.controls['paymentCode'].touched}">
       </div>
     </div>
     </form>
-    <button class="continue-btn" (click)="nextStageBilling()">Pay Securely</button>
+    <button class="continue-btn" (click)="nextStageBilling()" [ngClass]="{disableContinueBtn:!paymentFormGroup.valid}">Pay Securely</button>
   </div>
